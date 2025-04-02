@@ -3,7 +3,7 @@ WORKDIR /usr/src
 
 RUN npm install -g pnpm
 
-RUN apt-get update && apt-get install -y git
+RUN apt-get update && apt-get install -y git && apt-get install -y vim
 
 RUN git clone https://github.com/hirotoe0112/the-fourth-pole.git
 RUN cd the-fourth-pole && pnpm install
