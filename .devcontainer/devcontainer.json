@@ -5,7 +5,10 @@
   "workspaceFolder": "/usr/src",
   "customizations": {
     "vscode": {
-      "extensions": ["biomejs.biome"]
+      "extensions": [
+        "biomejs.biome",
+        "PKief.material-icon-theme"
+      ]
     }
   }
 }
