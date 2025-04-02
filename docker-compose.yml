@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  the-fourth-pole:
+    build:
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./src:/usr/src
+    tty: true
+    ports:
+      - "3000:3000"
