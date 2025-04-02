@@ -1,0 +1,34 @@
+{
+  "files": {
+    "ignoreUnknown": false,
+    "ignore": [
+      ".pnpm-store",
+      "cdk.out",
+      "node_modules",
+      "dist",
+      "build",
+      ".react-router"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "lineWidth": 80,
+    "attributePosition": "auto"
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true
+    }
+  },
+  "organizeImports": {
+    "enabled": true
+  },
+  "json": {
+    "formatter": {
+      "trailingCommas": "none",
+      "indentStyle": "space"
+    }
+  }
+}

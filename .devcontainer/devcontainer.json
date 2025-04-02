@@ -1,0 +1,11 @@
+{
+  "name": "Existing Docker Compose (Extend)",
+  "dockerComposeFile": ["./docker-compose.yml"],
+  "service": "the-fourth-pole",
+  "workspaceFolder": "/usr/src",
+  "customizations": {
+    "vscode": {
+      "extensions": ["biomejs.biome"]
+    }
+  }
+}

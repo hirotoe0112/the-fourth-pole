@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "fix:format": "biome format --write ./",
+    "fix:lint": "biome lint ./ --write",
+    "fix": "pnpm fix:format && pnpm fix:lint",
+    "validate:format": "biome format ./",
+    "validate:lint": "biome check ./",
+    "validate": "pnpm validate:format && pnpm validate:lint"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.14.0",
+    "hono": "^4.7.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "tsx": "^4.7.1"
+  }
+}

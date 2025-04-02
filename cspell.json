@@ -1,0 +1,9 @@
+{
+  "words": ["isbot"],
+  "ignorePaths": [
+    "**/biome.json",
+    "**/cspell.json",
+    "pnpm-lock.yaml",
+    "**/cdk.json"
+  ]
+}

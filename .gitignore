@@ -137,3 +137,6 @@ dist
 
 # pnpm
 .pnpm-store/
+
+# cspell
+.cspellcache
