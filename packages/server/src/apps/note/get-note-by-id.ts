@@ -32,7 +32,8 @@ export const getNoteById = appAuth.openapi(
     },
   }),
   async (c) => {
-    console.log(c);
+    const sub = c.var.jwtPayload.sub;
+    console.log(sub);
     return c.json({ content: "dummy data" }, 200);
   },
 );

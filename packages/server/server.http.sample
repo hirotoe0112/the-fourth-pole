@@ -1,0 +1,6 @@
+@host=http://localhost:3000
+@token=dummy
+
+###
+GET {{host}}/notes/123
+Authorization: Bearer {{token}}

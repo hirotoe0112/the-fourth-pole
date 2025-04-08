@@ -1,6 +1,7 @@
 import { config } from "dotenv";
 import type { MiddlewareHandler } from "hono";
 import { createRemoteJWKSet, jwtVerify } from "jose";
+import type { HonoContext } from "../types/hono-context.js";
 config();
 
 const ISSUER = process.env.AUTH0_ISSUER;
@@ -9,7 +10,9 @@ const AUDIENCE = process.env.AUTH0_AUDIENCE;
 /**
  * 認証用ミドルウェア
  */
-export const authMiddleware = (): MiddlewareHandler => {
+export const authMiddleware = (): MiddlewareHandler<{
+  Variables: HonoContext;
+}> => {
   const jwks = createRemoteJWKSet(new URL(`${ISSUER}.well-known/jwks.json`));
 
   return async (c, next) => {
@@ -30,7 +33,7 @@ export const authMiddleware = (): MiddlewareHandler => {
         audience: AUDIENCE,
       });
 
-      c.set("jwtPayload", payload);
+      c.set("jwtPayload", payload as { sub: string });
 
       await next();
     } catch (err) {

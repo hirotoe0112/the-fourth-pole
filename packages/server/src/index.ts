@@ -4,8 +4,9 @@ import { OpenAPIHono } from "@hono/zod-openapi";
 import type { Context } from "hono";
 import { prettyJSON } from "hono/pretty-json";
 import { noteApp } from "./apps/note/index.js";
+import type { HonoContext } from "./types/hono-context.js";
 
-const app = new OpenAPIHono({
+const app = new OpenAPIHono<{ Variables: HonoContext }>({
   defaultHook: (result, c: Context) => {
     if (!result.success) {
       return c.json(
@@ -20,7 +21,7 @@ const app = new OpenAPIHono({
 });
 
 // Route Definitions
-app.route("/note", noteApp);
+app.route("/notes", noteApp);
 
 // Show formatted json when adding ?pretty at the end of the url
 app.use("*", prettyJSON());
