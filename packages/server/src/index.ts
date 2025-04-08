@@ -1,10 +1,9 @@
 import { serve } from "@hono/node-server";
-import { OpenAPIHono } from "@hono/zod-openapi";
-import { sampleApp } from "./apps/sample/index.js";
 import { swaggerUI } from "@hono/swagger-ui";
-import { prettyJSON } from "hono/pretty-json";
+import { OpenAPIHono } from "@hono/zod-openapi";
 import type { Context } from "hono";
-import { authMiddleware } from "./middleware/auth.js";
+import { prettyJSON } from "hono/pretty-json";
+import { noteApp } from "./apps/note/index.js";
 
 const app = new OpenAPIHono({
   defaultHook: (result, c: Context) => {
@@ -19,6 +18,9 @@ const app = new OpenAPIHono({
     }
   },
 });
+
+// Route Definitions
+app.route("/note", noteApp);
 
 // Show formatted json when adding ?pretty at the end of the url
 app.use("*", prettyJSON());
@@ -39,22 +41,7 @@ app.get(
   }),
 );
 
-// Auth
-app.use("*", authMiddleware());
-
-app.openapi(sampleApp, (c) => {
-  const { id } = c.req.valid("param");
-  return c.json({
-    id,
-    age: 20,
-    name: "Ultra-man",
-  });
-});
-
-app.get("/", (c) => {
-  return c.text("Hello Hono!");
-});
-
+// Error handling
 app.onError((err, c) => {
   console.error(err);
   return c.json(

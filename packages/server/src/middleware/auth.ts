@@ -1,6 +1,6 @@
+import { config } from "dotenv";
 import type { MiddlewareHandler } from "hono";
 import { createRemoteJWKSet, jwtVerify } from "jose";
-import { config } from "dotenv";
 config();
 
 const ISSUER = process.env.AUTH0_ISSUER;
