@@ -1,4 +1,4 @@
-import { z } from '@hono/zod-openapi'
+import { z } from "@hono/zod-openapi";
 
 export const ParamsSchema = z.object({
   id: z
@@ -6,23 +6,23 @@ export const ParamsSchema = z.object({
     .min(3)
     .openapi({
       param: {
-        name: 'id',
-        in: 'path',
+        name: "id",
+        in: "path",
       },
-      example: '1212121',
+      example: "1212121",
     }),
-})
+});
 
 export const UserSchema = z
   .object({
     id: z.string().openapi({
-      example: '123',
+      example: "123",
     }),
     name: z.string().openapi({
-      example: 'John Doe',
+      example: "John Doe",
     }),
     age: z.number().openapi({
       example: 42,
     }),
   })
-  .openapi('User')
+  .openapi("User");

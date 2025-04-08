@@ -14,7 +14,9 @@
     "@hono/node-server": "^1.14.0",
     "@hono/swagger-ui": "^0.5.1",
     "@hono/zod-openapi": "^0.19.2",
+    "dotenv": "^16.4.7",
     "hono": "^4.7.5",
+    "jose": "^6.0.10",
     "zod": "^3.24.2"
   },
   "devDependencies": {
