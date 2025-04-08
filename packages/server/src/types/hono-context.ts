@@ -1,5 +1,3 @@
 export type HonoContext = {
-  jwtPayload: {
-    sub: string;
-  };
+  userId: string;
 };

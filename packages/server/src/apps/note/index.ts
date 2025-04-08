@@ -1,5 +1,5 @@
 import { OpenAPIHono } from "@hono/zod-openapi";
-import { getNoteById } from "./get-note-by-id.js";
+import { getNoteById } from "./routes/get-note-by-id.js";
 
 /**
  * Route definition of Note App

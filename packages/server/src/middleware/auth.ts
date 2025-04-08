@@ -33,7 +33,7 @@ export const authMiddleware = (): MiddlewareHandler<{
         audience: AUDIENCE,
       });
 
-      c.set("jwtPayload", payload as { sub: string });
+      c.set("userId", payload.sub as string);
 
       await next();
     } catch (err) {

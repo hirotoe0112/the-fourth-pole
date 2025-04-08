@@ -1,5 +1,6 @@
 import { createRoute, z } from "@hono/zod-openapi";
-import { appAuth } from "../../lib/app-auth.js";
+import { appAuth } from "../../../lib/app-auth.js";
+import { getNoteByIdHandler } from "../handlers/get-note-by-id.js";
 
 export const getNoteById = appAuth.openapi(
   createRoute({
@@ -32,8 +33,11 @@ export const getNoteById = appAuth.openapi(
     },
   }),
   async (c) => {
-    const sub = c.var.jwtPayload.sub;
-    console.log(sub);
-    return c.json({ content: "dummy data" }, 200);
+    const userId = c.var.userId;
+
+    const data = await getNoteByIdHandler({
+      userId: userId,
+    });
+    return c.json(data, 200);
   },
 );
