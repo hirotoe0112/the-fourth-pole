@@ -8,6 +8,8 @@ services:
       args:
         GIT_NAME: ${GIT_NAME}
         GIT_EMAIL: ${GIT_EMAIL}
+        AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+        AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
     working_dir: /usr/src
     tty: true
     ports:
