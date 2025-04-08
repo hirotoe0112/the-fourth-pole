@@ -1,13 +1,16 @@
 {
   "name": "Existing Docker Compose (Extend)",
-  "dockerComposeFile": ["./docker-compose.yml"],
+  "dockerComposeFile": [
+    "./docker-compose.yml"
+  ],
   "service": "the-fourth-pole",
   "workspaceFolder": "/usr/src",
   "customizations": {
     "vscode": {
       "extensions": [
         "biomejs.biome",
-        "PKief.material-icon-theme"
+        "PKief.material-icon-theme",
+        "humao.rest-client"
       ]
     }
   }
