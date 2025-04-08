@@ -2,6 +2,7 @@ FROM node:bookworm-slim
 WORKDIR /usr/src
 
 RUN npm install -g pnpm
+RUN npm install -g aws-cdk
 
 RUN apt-get update && apt-get install -y git && apt-get install -y vim
 
@@ -12,4 +13,3 @@ ARG GIT_NAME
 ARG GIT_EMAIL
 RUN git config --global user.name $GIT_NAME
 RUN git config --global user.email $GIT_EMAIL
-
